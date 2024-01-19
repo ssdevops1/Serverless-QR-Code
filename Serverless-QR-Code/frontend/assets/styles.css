@@ -1,0 +1,35 @@
+/* Reset some default styles */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6; /* Improved readability with a slightly increased line height */
+  color: #333; /* Set a default text color */
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; /* Add a subtle border radius for a modern look */
+}
+
+/* Improve readability and aesthetics for headings */
+h1, h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Improve spacing and readability for paragraphs */
+p {
+  margin-bottom: 15px;
+}
+
+/* Add your custom styles below */

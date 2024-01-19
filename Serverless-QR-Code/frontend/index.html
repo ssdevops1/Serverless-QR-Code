@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generic QR Code Generator</title>
+
+  <!-- Add your styles link -->
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <!-- Add any additional meta tags, styles, or scripts here -->
+
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>QR Code Generator</h1>
+    </header>
+
+    <!-- Form for QR Code generation -->
+    <form id="qrCodeForm" onsubmit="return false" aria-labelledby="qrCodeFormTitle">
+      <label id="qrCodeFormTitle" for="urlInput">Enter URL:</label>
+      <input type="url" id="urlInput" placeholder="https://example.com" required aria-required="true" aria-describedby="urlInputDescription">
+      <div id="urlInputDescription" class="visually-hidden">Please enter a valid URL.</div>
+      <button type="button" id="generateButton" onclick="generateQRCode()">Generate QR Code</button>
+    </form>
+
+    <!-- Container for displaying the generated QR Code -->
+    <section id="qrCodeContainer" aria-live="polite" aria-atomic="true"></section>
+  </div>
+
+  <!-- Include your scripts at the end for better performance -->
+  <script defer src="scripts/main.js"></script>
+  
+  <!-- Add any additional scripts or libraries if needed -->
+
+</body>
+</html>
