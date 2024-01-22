@@ -1,8 +1,13 @@
 import json
+import logging
 import boto3
 import qrcode
 from io import BytesIO
 from datetime import datetime
+
+# Set up logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
 def generate_qr_code(url):
     # Generate QR code
@@ -45,6 +50,8 @@ def save_to_dynamodb(table_name, url, s3_object_key):
 
 def lambda_handler(event, context):
     try:
+        logger.info("Lambda function started.")
+
         # Parse JSON payload
         payload = json.loads(event["body"])
         url = payload.get("url")
@@ -75,14 +82,19 @@ def lambda_handler(event, context):
         }
 
     except ValueError as ve:
+        logger.error(f"ValueError: {ve}")
         response = {
             "statusCode": 400,
             "body": json.dumps({"error": str(ve)}),
         }
+
     except Exception as e:
+        logger.error(f"Error: {e}")
         response = {
             "statusCode": 500,
             "body": json.dumps({"error": str(e)}),
         }
 
-    return response
+    finally:
+        logger.info("Lambda function completed.")
+        return response
